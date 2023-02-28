@@ -16,7 +16,9 @@ gameboard.randomEmptyBox().tile = new Tile(grid)
 ///// Functions 
 ///////////////////
 
-
+function setupInput(){
+    window.addEventListener("keydown" , handleInput)
+}
 
 function Initial(){
     

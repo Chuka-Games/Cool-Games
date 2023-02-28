@@ -79,6 +79,7 @@ body{
     --bColor: rgb(238, 228, 218);
     --color: rgb(119, 110, 101);
     background-color: var(--bColor);
+    color: var(--color);
     position:absolute;
     display: flex;
     justify-content: center;

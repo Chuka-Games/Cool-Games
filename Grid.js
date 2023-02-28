@@ -2,11 +2,22 @@ const twoByTwo = document.getElementById("2-2")
 const fourByFour = document.getElementById("4-4")
 const eightByEight = document.getElementById("8-8")
 
-let gridSize = 4
-let gridGap = 15
-let boxWidth = 107.5
-let boxHeight = 106.25
-let fontSize = 49
+let mode = 2
+
+let gs, gp, bw, bh, fs
+if (mode == 4){
+    gs = 4 , gp = 15 , bw = 107.5 , bh = 106.25, fs = 49
+}else if(mode == 2){
+    gs = 2 , gp = 15 , bw = 227.5 , bh = 225, fs = 98
+}else if(mode == 8){
+    gs = 8 , gp = 10 , bw = 51.9 , bh = 50, fs = 24.5
+}
+
+let gridSize = gs
+let gridGap = gp
+let boxWidth = bw
+let boxHeight = bh
+let fontSize = fs
 
 //Values  will change depending on cerntain conditions 
 //8x8  gridSize: 8      gridGap: 10     boxHeight: 50px        boxWidth: 51.9px
