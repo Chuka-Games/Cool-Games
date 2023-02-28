@@ -2,7 +2,7 @@ const twoByTwo = document.getElementById("2-2")
 const fourByFour = document.getElementById("4-4")
 const eightByEight = document.getElementById("8-8")
 
-let mode = 2
+let mode = 4
 
 let gs, gp, bw, bh, fs
 if (mode == 4){
@@ -35,7 +35,22 @@ export default class Grid{
         this.#boxes = createBoxes(grid).map((element , index) => {
             return new Box(element , index % gridSize , Math.floor(index / gridSize)) 
         })
-        console.log(this.#boxes)
+        //console.log(this.#boxes)
+    }
+    get Columns(){
+        return this.#boxes.reduce((Grid, box) => {
+            Grid[box.x] = Grid[box.x] || []
+            Grid[box.x][box.y] = box
+            return Grid 
+        }, [])  
+    }
+
+    get Rows(){
+        return this.#boxes.reduce((Grid, box) => {
+            Grid[box.y] = Grid[box.y] || []
+            Grid[box.y][box.x] = box
+            return Grid 
+        }, [])  
     }
 
     get #emptyBoxes(){
@@ -54,6 +69,7 @@ class Box{
     #x
     #y
     #tile
+    #mergeTile
     constructor(element, x, y){
         this.#element = element
         this.#x = x
@@ -71,6 +87,28 @@ class Box{
         }
         this.#tile.x = this.#x
         this.#tile.y = this.#y
+    }
+
+    get x(){
+        return this.#x
+    }
+
+    get y(){
+        return this.#y
+    }
+
+    set mergeTile(value){
+        this.#mergeTile = value
+        if(value == null){ return }
+        this.#mergeTile.x = this.#x
+        this.#mergeTile.y = this.#y 
+    }
+    get mergeTile(){
+        return this.#mergeTile
+    }
+
+    canAccept(currTile){
+        return (this.tile == null || (this.mergeTile == null && this.tile.value == currTile.value))
     }
 }
 
