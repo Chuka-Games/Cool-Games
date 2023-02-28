@@ -15,7 +15,6 @@ export default class Tile{
     set value(v){
         this.#value = v
         this.#tileElement.textContent = v
-        //const power = Math.log2(v)
         const rgbValues = this.#tileColors[v]
         this.#tileElement.style.setProperty("--bColor" , `rgb(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]})`)
         if(v == 4 || v == 2){
@@ -36,5 +35,20 @@ export default class Tile{
 
     get colors(){
         return this.#tileColors
+    }
+
+    get value(){
+        return this.#value
+    }
+
+    remove(){
+        this.#tileElement.remove()
+    }
+
+    playAnimation(animation = false){
+        return new Promise(resolve => {
+            this.#tileElement.addEventListener(animation ? "animationend" :  "transitionend" , resolve , 
+            {once : true,})
+        })
     }
 }
