@@ -1,0 +1,176 @@
+* , *::before , *::after{
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+body{
+    background-color: #faf8ef;
+    margin:80px 0px;
+    color: #776e65;
+}
+
+.title{
+    font-size: 100px;
+    font-weight: bold;
+    margin:0px;
+}
+
+
+.heading{
+    display: inline-flex;
+    justify-content: space-between;
+    width: -webkit-fill-available;
+}
+.scoreboard{
+    text-align:center;
+    background: #bbada0;
+    margin-bottom: 50px;
+    padding: 20px 20px 0px;
+    border-radius: 4px;
+}
+
+.top_sc{
+    color: #eee4da;
+    font-weight: bold;
+    line-height: 15px;
+    font-size: 20px;
+}
+
+.bot_sc{
+    font-size: 35px;
+    color: white;
+    font-weight: bold;
+    margin: 5px 0px;
+}
+
+.ht{
+    margin-bottom:0px;
+    font-size: 25px;
+}
+
+.game-container{
+    width: 505px;
+    margin: auto;
+}
+
+
+.grid{
+    display: grid;
+    background-color: rgb(187, 173, 160);
+    grid-template: repeat(var(--gridSize), 1fr)/repeat(var(--gridSize), 1fr);
+    border-radius: 6px;
+    margin-top:50px;
+    height:470px;
+    gap: var(--gridGap);
+    padding: var(--gridGap);
+    position:relative;
+    font-size: var(--letterSize);
+
+}
+
+.box{
+    border-radius: 6px;
+    background-color: rgba(238, 228, 218, 0.35);  
+    border:none; 
+}
+
+.tile{
+    --x:0;
+    --y:0;
+    --bColor: rgb(238, 228, 218);
+    --color: rgb(119, 110, 101);
+    background-color: var(--bColor);
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:var(--boxWidth);
+    height: var(--boxHeight);
+    border-radius: 6px;
+    left:calc(var(--gridGap)  + (var(--x) * (var(--gridGap) + var(--boxWidth))));
+    top:calc(var(--gridGap)  + (var(--y) * (var(--gridGap) + var(--boxHeight))));
+    font-weight: bold;
+    animation: show 200ms ease-in-out;
+    transition: 100ms ease-in-out; 
+}
+
+.explanation{
+    font-size: 25px;
+    margin-top:40px;
+}
+
+@keyframes show {
+    0% {
+        opacity: .5;
+        transform: scale(0);
+    }
+}
+
+.game-modes{
+    display:flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.modes{
+    border-radius: 3px;
+    font-size: 40px;
+    background-color: rgb(187, 173, 160);
+    border:none;
+    padding:10px;
+    color: whitesmoke;
+    cursor:pointer;
+    font-weight: bold;
+}
+
+
+/*
+.combined{
+    
+}
+
+.tile{
+   
+    --initialLeft : 15px;
+    --initialBot : 485px;
+    --cellWidth:107.5px;
+    --cellHeight:106.25px;
+    --gap:15px;
+    --bColor: rgb(238, 228, 218);
+    --color: rgb(119, 110, 101);
+    background-color: var(--bColor);
+    display:flex;
+    font-size: 49px;
+    color:var(--color);
+    position:relative;
+    font-weight: bold;
+    width:var(--cellWidth);
+    height:var(--cellHeight);
+    justify-content: center;
+    align-content: center;
+    line-height: 106.25px;
+    
+    bottom: calc(var(--initialBot) - (var(--y) * (var(--gap) + var(--cellHeight)))); 
+    border-radius: 3px;
+    
+    
+    
+    
+}
+ } */
+
+
+
+
+
+ /* z-index:10; */
+   
+    /* Variables to manipulate
+    font size
+    left
+    bottom
+    background-color
+    color
+    width
+    padding
+    font-size
+     */
