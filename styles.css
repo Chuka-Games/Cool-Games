@@ -43,7 +43,7 @@ body{
 }
 
 .ht{
-    margin-bottom:0px;
+    margin-top:-20px;
     font-size: 25px;
 }
 
@@ -58,7 +58,7 @@ body{
     background-color: rgb(187, 173, 160);
     grid-template: repeat(var(--gridSize), 1fr)/repeat(var(--gridSize), 1fr);
     border-radius: 6px;
-    margin-top:50px;
+    margin-top:10px;
     height:470px;
     gap: var(--gridGap);
     padding: var(--gridGap);
@@ -74,10 +74,6 @@ body{
 }
 
 .tile{
-    --x:0;
-    --y:0;
-    --bColor: rgb(238, 228, 218);
-    --color: rgb(119, 110, 101);
     background-color: var(--bColor);
     color: var(--color);
     position:absolute;
@@ -122,56 +118,3 @@ body{
     cursor:pointer;
     font-weight: bold;
 }
-
-
-/*
-.combined{
-    
-}
-
-.tile{
-   
-    --initialLeft : 15px;
-    --initialBot : 485px;
-    --cellWidth:107.5px;
-    --cellHeight:106.25px;
-    --gap:15px;
-    --bColor: rgb(238, 228, 218);
-    --color: rgb(119, 110, 101);
-    background-color: var(--bColor);
-    display:flex;
-    font-size: 49px;
-    color:var(--color);
-    position:relative;
-    font-weight: bold;
-    width:var(--cellWidth);
-    height:var(--cellHeight);
-    justify-content: center;
-    align-content: center;
-    line-height: 106.25px;
-    
-    bottom: calc(var(--initialBot) - (var(--y) * (var(--gap) + var(--cellHeight)))); 
-    border-radius: 3px;
-    
-    
-    
-    
-}
- } */
-
-
-
-
-
- /* z-index:10; */
-   
-    /* Variables to manipulate
-    font size
-    left
-    bottom
-    background-color
-    color
-    width
-    padding
-    font-size
-     */

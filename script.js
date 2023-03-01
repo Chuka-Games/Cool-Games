@@ -4,19 +4,65 @@ import Grid from './Grid.js'
 ///// Variables
 ///////////////////
 
+let mode = 4
 
 const grid = document.querySelector(".grid")
-const gameboard = new Grid(grid)
+let gameboard = new Grid(grid , mode)
 gameboard.randomEmptyBox().tile = new Tile(grid)
 gameboard.randomEmptyBox().tile = new Tile(grid)
 
-//console.log(gameboard.randomEmptyBox())
-
+const twoByTwo = document.getElementById("2-2")
+const fourByFour = document.getElementById("4-4")
+const eightByEight = document.getElementById("8-8")
+const score = document.querySelector(".bot_sc")
 
 ////////////////////
 ///// Functions 
 ///////////////////
 
+window.addEventListener("keydown" , function(event){
+    if(event.keyCode == 32){
+        grid.innerHTML = ""
+        score.innerText = "0"
+        gameboard = new Grid(grid , mode)
+        gameboard.randomEmptyBox().tile = new Tile(grid)
+        gameboard.randomEmptyBox().tile = new Tile(grid)
+    }
+    
+})
+
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
+
+twoByTwo.addEventListener("click", function(){
+    grid.innerHTML = ""
+    score.innerText = "0"
+    mode = 2
+    gameboard = new Grid(grid , mode)
+    gameboard.randomEmptyBox().tile = new Tile(grid)
+    gameboard.randomEmptyBox().tile = new Tile(grid)
+    
+})
+fourByFour.addEventListener("click", function(){
+    grid.innerHTML = ""
+    score.innerText = "0"
+    mode = 4
+    gameboard = new Grid(grid , mode)
+    gameboard.randomEmptyBox().tile = new Tile(grid)
+    gameboard.randomEmptyBox().tile = new Tile(grid)
+})
+eightByEight.addEventListener("click", function(){
+    grid.innerHTML = ""
+    score.innerText = "0"
+    mode = 8
+    gameboard = new Grid(grid , mode)
+    gameboard.randomEmptyBox().tile = new Tile(grid)
+    gameboard.randomEmptyBox().tile = new Tile(grid)
+})
 
 function setupInput(){
     window.addEventListener("keydown" , handleInput, {once: true})
@@ -67,7 +113,7 @@ async function handleInput(event){
 
     if(!canMoveLeft() && !canMoveDown() && !canMoveRight() && !canMoveUp()){
         newBox.playAnimation(true).then(() =>{
-            console.log("You lose")  
+            alert("You lose") 
         })
         return 
     }

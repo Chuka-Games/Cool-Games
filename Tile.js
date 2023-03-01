@@ -16,7 +16,12 @@ export default class Tile{
         this.#value = v
         this.#tileElement.textContent = v
         const rgbValues = this.#tileColors[v]
-        this.#tileElement.style.setProperty("--bColor" , `rgb(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]})`)
+        if(v > 2048){
+            this.#tileElement.style.setProperty("--bColor" , "rgb(61, 58, 51)")
+        }else{
+            this.#tileElement.style.setProperty("--bColor" , `rgb(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]})`)
+        }
+        
         if(v == 4 || v == 2){
             this.#tileElement.style.setProperty("--color" , "rgb(119, 110, 101)")
         }else{
